@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdovxjrfhyhdf"]
+[gd_scene load_steps=9 format=3 uid="uid://cdovxjrfhyhdf"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5moga"]
 [ext_resource type="Script" path="res://Player.gd" id="2_1sf1x"]
+[ext_resource type="Texture2D" uid="uid://8usfc3rv6vwb" path="res://Art/square-xxl.png" id="3_dhv40"]
+[ext_resource type="Script" path="res://HunterEnemy.gd" id="3_ovtym"]
+[ext_resource type="Script" path="res://FodderEnemy.gd" id="4_a6om2"]
+[ext_resource type="Script" path="res://Map.gd" id="5_j00mw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xhwd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dhv40")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5bvv"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5moga")
@@ -9,12 +26,17 @@ script = ExtResource("1_5moga")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Message" type="Label" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 456.0
+offset_top = 312.0
+offset_right = 618.0
+offset_bottom = 338.0
 
 [node name="StartGame" type="Button" parent="HUD"]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 488.0
+offset_top = 496.0
+offset_right = 584.0
+offset_bottom = 527.0
+text = "Start Game"
 
 [node name="TitleSplash" type="Container" parent="HUD"]
 offset_right = 40.0
@@ -37,17 +59,26 @@ offset_bottom = 40.0
 [node name="EscapeCountdown" type="Timer" parent="HUD"]
 
 [node name="EscapeCountdownLabel" type="Label" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 488.0
+offset_right = 546.0
+offset_bottom = 26.0
+text = "Escape!"
+horizontal_alignment = 1
 
 [node name="Player" type="Area2D" parent="."]
 script = ExtResource("2_1sf1x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(448, 256)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_0xhwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_k5bvv")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="HunterEnemy" type="Area2D" parent="."]
+script = ExtResource("3_ovtym")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HunterEnemy"]
 
@@ -60,6 +91,7 @@ script = ExtResource("2_1sf1x")
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="HunterEnemy/VisionCone"]
 
 [node name="FodderEnemy" type="Area2D" parent="."]
+script = ExtResource("4_a6om2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FodderEnemy"]
 
@@ -67,6 +99,7 @@ script = ExtResource("2_1sf1x")
 
 [node name="Map" type="TileMap" parent="."]
 format = 2
+script = ExtResource("5_j00mw")
 
 [node name="StartRoom" type="TileMap" parent="Map"]
 format = 2
@@ -87,4 +120,11 @@ format = 2
 format = 2
 
 [node name="Enemy3RoomA" type="TileMap" parent="Map"]
+position = Vector2(0, 8)
 format = 2
+
+[node name="ExitButton" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitButton"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ExitButton"]
