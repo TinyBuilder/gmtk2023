@@ -3,6 +3,7 @@ extends Area2D
 @export var speed = 400
 var velocity
 var screen_size
+signal hit
 
 
 
@@ -48,5 +49,7 @@ func _process(delta):
 
 	# Update player position
 	position += velocity * delta
+	
+
 	
 

@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://di3bb1ung2jxi"]
+
+[node name="ItemRoom" type="TileMap"]
+format = 2

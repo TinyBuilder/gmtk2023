@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bmvyjybauito5"]
+
+[node name="ExitRoom" type="TileMap"]
+format = 2
