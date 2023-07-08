@@ -49,6 +49,7 @@ func _on_credits_pressed():
 
 func _on_start_new_game():
 	$SceneChange._anim_player.play()
+	await $SceneChange._anim_player.animation_finished
 	$Logo.hide()
 	$SceneChange._anim_player.play_backwards()
 	pass # Replace with function body.
