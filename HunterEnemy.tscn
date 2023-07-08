@@ -11,6 +11,4 @@ script = ExtResource("1_qwh6h")
 
 [node name="VisionCone" type="Area2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisionCone"]
-
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="VisionCone"]
