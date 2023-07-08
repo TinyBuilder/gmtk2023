@@ -1,10 +1,15 @@
 extends Area2D
-# Set variables
+# Set variables and signals
 @export var speed = 400
-var velocity = Vector2()
+var velocity
+var screen_size
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	screen_size = get_viewport_rect().size
 	pass # Replace with function body.
 
 
@@ -43,4 +48,5 @@ func _process(delta):
 
 	# Update player position
 	position += velocity * delta
+	
 

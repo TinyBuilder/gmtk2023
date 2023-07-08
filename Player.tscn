@@ -65,7 +65,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle_animation",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,7 +79,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_down",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -93,7 +93,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_side",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -107,20 +107,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_up",
-"speed": 5.0
+"speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pw3ke"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nc5rt"]
+radius = 32.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_nsc00")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(448, 256)
+position = Vector2(80, 88)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_0xhwd")
-animation = &"Idle_animation"
+animation = &"move_up"
+frame_progress = 0.482602
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_pw3ke")
+position = Vector2(80, 88)
+shape = SubResource("CircleShape2D_nc5rt")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)

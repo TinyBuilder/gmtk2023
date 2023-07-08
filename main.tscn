@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdovxjrfhyhdf"]
+[gd_scene load_steps=5 format=3 uid="uid://cdovxjrfhyhdf"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_oj3ji"]
 [ext_resource type="PackedScene" uid="uid://cg0ix12atkfm" path="res://Map.tscn" id="2_kjb3j"]
+[ext_resource type="PackedScene" uid="uid://c1l6v5nfb8odx" path="res://Player.tscn" id="3_7ax03"]
 
 [sub_resource type="TileSet" id="TileSet_jgt66"]
 
@@ -58,3 +59,9 @@ tile_set = SubResource("TileSet_jgt66")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitButton"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ExitButton"]
+
+[node name="Player" parent="." instance=ExtResource("3_7ax03")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
