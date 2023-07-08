@@ -12,19 +12,19 @@ func _ready():
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("move_up"):		
-		velocity.y -= 1
-	elif Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	elif Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	elif Input.is_action_pressed("move_right"):
-		velocity.x += 1
+	if Input.is_action_pressed("ui_up"):		
+		velocity.y -= speed
+	elif Input.is_action_pressed("ui_down"):
+		velocity.y += speed
+	elif Input.is_action_pressed("ui_left"):
+		velocity.x -= speed
+	elif Input.is_action_pressed("ui_right"):
+		velocity.x += speed
 	
 
 func _physics_process(delta):
 	get_input()
-	move_and_collide(velocity * delta)
+	move_and_slide()
 	# Input mapping
 #	if Input.is_action_pressed("move_up"):
 #		velocity.y -= 1
