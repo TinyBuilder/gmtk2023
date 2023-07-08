@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1enblsoid2vw"]
+
+[ext_resource type="Script" path="res://HunterEnemy.gd" id="1_qwh6h"]
+
+[node name="HunterEnemy" type="Area2D"]
+script = ExtResource("1_qwh6h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisionCone" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VisionCone"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="VisionCone"]

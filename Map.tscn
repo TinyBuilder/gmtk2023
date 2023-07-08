@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://7snb4jhwsofa"]
+
+[ext_resource type="Script" path="res://Map.gd" id="1_1pr1y"]
+
+[node name="Map" type="TileMap"]
+format = 2
+script = ExtResource("1_1pr1y")
+
+[node name="StartRoom" type="TileMap" parent="."]
+format = 2
+
+[node name="ExitRoom" type="TileMap" parent="."]
+format = 2
+
+[node name="ItemRoom" type="TileMap" parent="."]
+format = 2
+
+[node name="EmptyRoom" type="TileMap" parent="."]
+format = 2
+
+[node name="Enemy1RoomA" type="TileMap" parent="."]
+format = 2
+
+[node name="Enemy2RoomA" type="TileMap" parent="."]
+format = 2
+
+[node name="Enemy3RoomA" type="TileMap" parent="."]
+position = Vector2(0, 8)
+format = 2

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3g1ko2k4s3wm"]
+
+[ext_resource type="Script" path="res://FodderEnemy.gd" id="1_n4g7u"]
+
+[node name="FodderEnemy" type="Area2D"]
+script = ExtResource("1_n4g7u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
