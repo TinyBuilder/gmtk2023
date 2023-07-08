@@ -34,10 +34,12 @@ func _on_credits_pressed():
 		$StartGame.hide()
 		$CreditsButton.text = "Hide Credits"
 		$CreditsText.show()
+		$Logo.set_modulate(Color (1,1,1,0.1)) #Dims background while credits display
 		credits_on = 1
 	else: 
 		$StartGame.show()
 		$CreditsText.hide()
+		$Logo.set_modulate(Color (1,1,1,1))
 		$CreditsButton.text = "Show Credits"
 		credits_on = 0
 	pass # Replace with function body.
