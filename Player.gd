@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 # Set variables and signals
 @export var speed = 400
 var velocity
