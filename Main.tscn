@@ -10,5 +10,6 @@ script = ExtResource("1_02xdv")
 [node name="MainMenu" parent="." instance=ExtResource("2_paxka")]
 
 [node name="Map" parent="." instance=ExtResource("3_ytw3f")]
+position = Vector2(411, 399)
 
 [connection signal="start_new_game" from="MainMenu" to="MainMenu" method="_on_start_new_game"]

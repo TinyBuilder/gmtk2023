@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://co5jxwacp05mi"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_t0n1q"]
-[ext_resource type="Texture2D" uid="uid://mpq7muuqcu8d" path="res://Art/Ruby_spritesheet.png" id="1_xgq37"]
+[ext_resource type="Script" path="res://Player.gd" id="1_4lm4u"]
+[ext_resource type="Texture2D" uid="uid://dwt003u6a4iip" path="res://Art/Ruby_spritesheet.png" id="1_xgq37"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_00exx"]
 atlas = ExtResource("1_xgq37")
@@ -118,7 +118,7 @@ motion_mode = 1
 slide_on_ceiling = false
 wall_min_slide_angle = 0.0
 floor_constant_speed = true
-script = ExtResource("1_t0n1q")
+script = ExtResource("1_4lm4u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pfmd5")

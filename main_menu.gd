@@ -48,5 +48,7 @@ func _on_credits_pressed():
 
 
 func _on_start_new_game():
-	_transition_rect.transition_to("Map.tscn")
+	$SceneChange._anim_player.play()
+	$Logo.hide()
+	$SceneChange._anim_player.play_backwards()
 	pass # Replace with function body.
