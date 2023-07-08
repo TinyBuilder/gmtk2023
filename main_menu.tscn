@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs1nvi53ahd5x"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_ds7n4"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_ds7n4")
+
+[node name="StartGame" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -139.0
+offset_right = 46.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+text = "Start Game!"
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 454.0
+offset_top = 482.0
+offset_right = 563.0
+offset_bottom = 513.0
+size_flags_horizontal = 4
+text = "Show Credits
+"
+
+[node name="CreditsText" type="Label" parent="."]
+offset_left = 255.0
+offset_top = 133.0
+offset_right = 763.0
+offset_bottom = 418.0
+text = "Coding - 
+Art - 
+Ideas - 
+Assets - "
