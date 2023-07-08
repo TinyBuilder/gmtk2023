@@ -13,5 +13,5 @@ func _process(delta):
 func transition_to(next_scene_path):
 	_anim_player.play("Fade") #Fade from transparent to black
 	await _anim_player.animation_finished #wait till animation complete: screen is definitely black
-	get_tree().change_scene(next_scene_path) #load next scene
+	get_tree().change_scene_to_file(next_scene_path) #load next scene
 	pass

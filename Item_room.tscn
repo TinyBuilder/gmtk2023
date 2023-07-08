@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://di3bb1ung2jxi"]
+[gd_scene load_steps=4 format=3 uid="uid://di3bb1ung2jxi"]
+
+[ext_resource type="Texture2D" uid="uid://bicyrx4sf67qu" path="res://Art/Dungeon_tileset.png" id="1_ft4tt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eefox"]
+texture = ExtResource("1_ft4tt")
+
+[sub_resource type="TileSet" id="TileSet_4y384"]
+sources/0 = SubResource("TileSetAtlasSource_eefox")
 
 [node name="ItemRoom" type="TileMap"]
+tile_set = SubResource("TileSet_4y384")
 format = 2

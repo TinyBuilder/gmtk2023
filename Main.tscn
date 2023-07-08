@@ -1,60 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctqwwven875ws"]
+[gd_scene load_steps=4 format=3 uid="uid://4rebhbv1ka00"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_oj3ji"]
-[ext_resource type="PackedScene" uid="uid://cg0ix12atkfm" path="res://Map.tscn" id="2_kjb3j"]
-
-[sub_resource type="TileSet" id="TileSet_jgt66"]
+[ext_resource type="Script" path="res://Main.gd" id="1_02xdv"]
+[ext_resource type="PackedScene" uid="uid://bs1nvi53ahd5x" path="res://main_menu.tscn" id="2_paxka"]
+[ext_resource type="PackedScene" uid="uid://cg0ix12atkfm" path="res://Map.tscn" id="3_ytw3f"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_oj3ji")
+script = ExtResource("1_02xdv")
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="MainMenu" parent="." instance=ExtResource("2_paxka")]
 
-[node name="Message" type="Label" parent="HUD"]
-offset_left = 456.0
-offset_top = 312.0
-offset_right = 618.0
-offset_bottom = 338.0
+[node name="Map" parent="." instance=ExtResource("3_ytw3f")]
 
-[node name="StartGame" type="Button" parent="HUD"]
-offset_left = 488.0
-offset_top = 496.0
-offset_right = 584.0
-offset_bottom = 527.0
-text = "Start Game"
-
-[node name="TitleSplash" type="Container" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TitleArtAnimation" type="Container" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="GameOverArt" type="Container" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="GameWonArt" type="Container" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MessageTimer" type="Timer" parent="HUD"]
-
-[node name="EscapeCountdown" type="Timer" parent="HUD"]
-
-[node name="EscapeCountdownLabel" type="Label" parent="HUD"]
-offset_left = 488.0
-offset_right = 546.0
-offset_bottom = 26.0
-text = "Escape!"
-horizontal_alignment = 1
-
-[node name="Map" parent="." instance=ExtResource("2_kjb3j")]
-tile_set = SubResource("TileSet_jgt66")
-
-[node name="ExitButton" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitButton"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ExitButton"]
+[connection signal="start_new_game" from="MainMenu" to="MainMenu" method="_on_start_new_game"]

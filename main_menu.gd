@@ -44,3 +44,9 @@ func _on_credits_pressed():
 		$CreditsButton.text = "Show Credits"
 		credits_on = 0
 	pass # Replace with function body.
+
+
+
+func _on_start_new_game():
+	_transition_rect.transition_to("Map.tscn")
+	pass # Replace with function body.

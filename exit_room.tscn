@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://bmvyjybauito5"]
+[gd_scene load_steps=2 format=3 uid="uid://bmvyjybauito5"]
+
+[sub_resource type="TileSet" id="TileSet_vwbnc"]
 
 [node name="ExitRoom" type="TileMap"]
+tile_set = SubResource("TileSet_vwbnc")
 format = 2
