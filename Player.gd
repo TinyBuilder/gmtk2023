@@ -10,7 +10,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# TODO: Player movement - Four directional movement no diagonals
 	velocity = Vector2.ZERO
 	# Input mapping
 	if Input.is_action_pressed("move_up"):
@@ -21,12 +20,26 @@ func _process(delta):
 		velocity.x -= 1
 	elif Input.is_action_pressed("move_right"):
 		velocity.x += 1
-		
+	
+	# Updating player speed, plays animation if moving
 	if velocity.length() > 0:
 		velocity = velocity * speed
 		$AnimatedSprite2D.play()
+	
+	# If not moving - play an idle animation
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("Idle_animation")
+	
+	# Handle which animation to play based on current movement
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "move_side"
+		$AnimatedSprite2D.flip_h = velocity.x > 0
+	
+	if velocity.y < 0:
+		$AnimatedSprite2D.animation = "move_up"
+	
+	if velocity.y > 0:
+		$AnimatedSprite2D.animation = "move_down"
 
 	# Update player position
 	position += velocity * delta

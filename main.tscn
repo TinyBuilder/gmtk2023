@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdovxjrfhyhdf"]
+[gd_scene load_steps=4 format=3 uid="uid://cdovxjrfhyhdf"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_oj3ji"]
-[ext_resource type="PackedScene" uid="uid://7snb4jhwsofa" path="res://Map.tscn" id="2_kjb3j"]
+[ext_resource type="PackedScene" uid="uid://cg0ix12atkfm" path="res://Map.tscn" id="2_kjb3j"]
+
+[sub_resource type="TileSet" id="TileSet_jgt66"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_oj3ji")
@@ -49,6 +51,7 @@ text = "Escape!"
 horizontal_alignment = 1
 
 [node name="Map" parent="." instance=ExtResource("2_kjb3j")]
+tile_set = SubResource("TileSet_jgt66")
 
 [node name="ExitButton" type="Area2D" parent="."]
 
