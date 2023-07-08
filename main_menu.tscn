@@ -20,14 +20,13 @@ grow_vertical = 0
 size_flags_horizontal = 4
 text = "Start Game!"
 
-[node name="Credits" type="Button" parent="."]
+[node name="CreditsButton" type="Button" parent="."]
 offset_left = 454.0
 offset_top = 482.0
 offset_right = 563.0
 offset_bottom = 513.0
 size_flags_horizontal = 4
-text = "Show Credits
-"
+text = "Show Credits"
 
 [node name="CreditsText" type="Label" parent="."]
 offset_left = 255.0
@@ -38,3 +37,9 @@ text = "Coding -
 Art - 
 Ideas - 
 Assets - "
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.96046e-08, 4.41074e-06)
+
+[connection signal="pressed" from="StartGame" to="." method="new_game"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_pressed"]
