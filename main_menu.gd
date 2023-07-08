@@ -5,6 +5,8 @@ var credits_on = 0 #used for toggling credits text
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$CreditsText.hide() #ensures credits text hidden by default
+	$LoseScreen.hide()
+	$WinScreen.hide()
 	pass # Replace with function body.
 
 
@@ -20,11 +22,13 @@ func new_game(): #on pushing newgame
 	pass
 
 func show_game_won():
+	$WinScreen.show()
 	$StartGame.text = "Congratulations, you escaped! Want to play again?" #updates start button text
 	$StartGame.show() #re-reveals start button
 	pass
 	
 func show_game_over():
+	$LoseScreen.show()
 	$StartGame.text = "Try Again?" #updates start button text
 	$StartGame.show() #re-reveals start button
 	
@@ -33,6 +37,8 @@ func show_game_over():
 func _on_credits_pressed():
 	if credits_on == 0:
 		$StartGame.hide()
+		$LoseScreen.hide()
+		$WinScreen.hide()
 		$CreditsButton.text = "Hide Credits" #Updates button text
 		$CreditsText.show()
 		$Logo.set_modulate(Color (1,1,1,0.1)) #Dims background while credits display
