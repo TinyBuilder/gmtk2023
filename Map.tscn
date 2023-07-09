@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://cg0ix12atkfm"]
 
 [ext_resource type="Script" path="res://Map.gd" id="1_1pr1y"]
-[ext_resource type="Texture2D" uid="uid://dkl70kjh636rm" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
+[ext_resource type="Texture2D" uid="uid://cfp3w70yfi4a6" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
 [ext_resource type="PackedScene" uid="uid://co5jxwacp05mi" path="res://player.tscn" id="3_scta4"]
 [ext_resource type="PackedScene" uid="uid://c1enblsoid2vw" path="res://HunterEnemy.tscn" id="4_52yht"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="6_kqh4j"]
@@ -731,4 +731,5 @@ orientation = "Vertical"
 [node name="HunterEnemy22" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-88, -443)
 
+[connection signal="kill_player" from="Player" to="." method="_on_player_kill_player"]
 [connection signal="kill_player" from="HunterEnemy" to="." method="_on_hunter_enemy_kill_player"]

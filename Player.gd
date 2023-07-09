@@ -7,6 +7,7 @@ var collectable
 var laser_usable = false
 signal hit
 signal laser_hit
+signal kill_player
 var animation_set = "1-"
 
 # Called when the node enters the scene tree for the first time.
@@ -70,6 +71,10 @@ func _physics_process(delta):
 
 	if velocity.y > 0:
 		$AnimatedSprite2D.play(animation_set + "down")
+		
+	for i in get_slide_collision_count():
+		if get_slide_collision(i).get_collider() in get_tree().get_nodes_in_group("enemy"):
+			emit_signal("kill_player")
 		
 func robot_activation():
 	# change player state to robot
