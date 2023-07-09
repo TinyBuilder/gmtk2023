@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal kill_player
 @export_enum("Idle", "Pursuit", "Rush", "Dead") var state: String = "Idle"
 @export_enum("Knight", "NotLink", "Cleric") var enemy_type: String = "Cleric"
 @export_enum("Horizontal", "Vertical") var orientation: String = "Horizontal"
@@ -9,7 +9,6 @@ var animation_set = "1-"
 var patrol_points
 var patrol_target = 0
 
-signal kill_player()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -88,4 +87,11 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		if $"../Player" == get_slide_collision(i):
-			emit_signal("kill_player")
+			kill_player.emit()
+
+func _on_kill_player():
+	$SceneChange._anim_player.play()
+	await $SceneChange._anim_player.animation_finished
+	$SceneChange._anim_player.play_backwards()
+	get_tree().change_scene_to_file("res://Menus/game_over.tscn")
+	pass # Replace with function body.

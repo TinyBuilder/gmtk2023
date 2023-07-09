@@ -15,5 +15,5 @@ func _on_back_pressed():
 	$SceneChange._anim_player.play()
 	await $SceneChange._anim_player.animation_finished
 	$SceneChange._anim_player.play_backwards()
-	get_tree().change_scene_to_file("res://Main.tscn")
+	get_tree().change_scene_to_file("res://Menus/main_menu.tscn")
 	pass # Replace with function body.

@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://c1enblsoid2vw"]
 
 [ext_resource type="Script" path="res://HunterEnemy.gd" id="1_qwh6h"]
-[ext_resource type="Texture2D" uid="uid://b40n6av4s6l8b" path="res://Art/light.webp" id="2_d3mgt"]
-[ext_resource type="Texture2D" uid="uid://bucok2q41uohw" path="res://Art/enemy_knights.png" id="2_ffmp8"]
+[ext_resource type="Texture2D" uid="uid://c5feaojqoiavc" path="res://Art/light.webp" id="2_d3mgt"]
+[ext_resource type="Texture2D" uid="uid://bdjoyq1wp8n7x" path="res://Art/enemy_knights.png" id="2_ffmp8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kus76"]
 atlas = ExtResource("2_ffmp8")
@@ -144,3 +144,5 @@ texture = ExtResource("2_d3mgt")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_655ns")
+
+[connection signal="kill_player" from="." to="." method="_on_kill_player"]
