@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export_enum("Base", "Robot", "Collected") var state: String = "Base"
 @export var speed: float = 400
 var screen_size
+var collectable
 signal hit
 signal laser_hit
 
@@ -46,7 +47,11 @@ func _physics_process(delta):
 
 	if velocity.y > 0:
 		$AnimatedSprite2D.animation = "move_down"
-
+		
+func robot_activation():
+	# 
+	pass
+	
 
 
 
@@ -54,3 +59,7 @@ func _physics_process(delta):
 
 	
 
+
+
+func _on_deactivated_robot_activated():
+	pass # Replace with function body.
