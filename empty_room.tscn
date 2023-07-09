@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://b86suw733u3t6"]
-
-[node name="EmptyRoom" type="TileMap"]
-format = 2

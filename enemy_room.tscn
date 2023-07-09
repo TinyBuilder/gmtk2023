@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://ddjeh548x0tl"]
-
-[node name="EnemyRoom" type="TileMap"]
-format = 2
