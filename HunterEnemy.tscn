@@ -44,12 +44,8 @@ scale = Vector2(0.7, 0.7)
 shape = SubResource("CircleShape2D_rvekp")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 4)
 shadow_enabled = true
 texture = ExtResource("2_d3mgt")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-position = Vector2(0, 4)
 occluder = SubResource("OccluderPolygon2D_655ns")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
