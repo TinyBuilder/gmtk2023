@@ -5,6 +5,8 @@ signal kill_player
 @export_enum("Horizontal", "Vertical") var orientation: String = "Horizontal"
 @export var direction: float = 0 ##angle in radians
 @export var speed: float = 75
+@export var patrol_speed: float = 0.03
+@export var sight_range: int = 200
 var animation_set = "1-"
 var patrol_direction = Vector2(1,0)
 var patrol_target = 0
@@ -27,8 +29,8 @@ func patrol():
 	state = "Idle"
 	if enemy_type == "Cleric":
 		velocity = Vector2.ZERO
-		if orientation == "Horizontal": direction += 0.05
-		if orientation == "Vertical": direction -= 0.05
+		if orientation == "Horizontal": direction += patrol_speed
+		if orientation == "Vertical": direction -= patrol_speed
 	
 	if enemy_type == "Knight":
 		velocity = speed * patrol_direction
@@ -37,21 +39,23 @@ func patrol():
 func _physics_process(delta):
 	if state == "Dead": return
 	
-	var target_position = $"../Player".get_position()
-	var target_vector_normalized = (target_position - get_position()).normalized()
+	var target_position = $"../Player".global_position
+	var target_distance = target_position - global_position
+	target_distance = target_distance.length()
+	var target_vector_normalized = (target_position - global_position).normalized()
 	
 	if state == "Rush":
 		# rush player
 		velocity = speed * target_vector_normalized
 		direction = target_vector_normalized.angle() - PI/2
-	elif !Geometry2D.is_point_in_polygon(target_vector_normalized.rotated(-direction), $LightOccluder2D.occluder.polygon) :
+	elif target_distance < sight_range && !Geometry2D.is_point_in_polygon(target_vector_normalized.rotated(-direction), $LightOccluder2D.occluder.polygon) :
 		var space_state = get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(global_position, $"../Player".global_position, collision_mask)
 		query.exclude = [self]
 		var result = space_state.intersect_ray(query)
 		if result["collider"] == $"../Player" :
 			state = "Pursuit"
-			if enemy_type == "Knight": state = "Rush"
+			#if enemy_type == "Knight": state = "Rush"
 			velocity = speed * target_vector_normalized
 			direction = target_vector_normalized.angle() - PI/2
 		else:
