@@ -1,6 +1,5 @@
 extends TileMap
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -23,6 +22,7 @@ func _on_player_kill_player():
 	$SceneChange._anim_player.play_backwards()
 	get_tree().change_scene_to_file("res://Menus/game_over.tscn")
 
-func _on_victory():
+
+func _on_win_condition_body_entered(body):
 	get_tree().change_scene_to_file("res://Menus/victory.tscn")
-	pass
+pass # Replace with function body.

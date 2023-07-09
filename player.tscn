@@ -1,9 +1,9 @@
 [gd_scene load_steps=54 format=3 uid="uid://co5jxwacp05mi"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_4lm4u"]
-[ext_resource type="Texture2D" uid="uid://bl41o4wiqa2c7" path="res://Art/Ruby_spritesheet.png" id="1_xgq37"]
-[ext_resource type="Texture2D" uid="uid://bqbnue7km6cty" path="res://Art/Ruby_bot.png" id="3_teenl"]
-[ext_resource type="AudioStream" uid="uid://1newrvv1ud44" path="res://Music & SFX/Stealth_music_NOTFINAL.wav" id="4_up306"]
+[ext_resource type="Texture2D" uid="uid://ud5kks2xe0bd" path="res://Art/Ruby_spritesheet.png" id="1_xgq37"]
+[ext_resource type="Texture2D" uid="uid://bshxkbg7surn4" path="res://Art/Ruby_bot.png" id="3_teenl"]
+[ext_resource type="AudioStream" uid="uid://cuv8q0hn2emoi" path="res://Music & SFX/Stealth_music_NOTFINAL.wav" id="4_up306"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13j7t"]
 atlas = ExtResource("1_xgq37")
@@ -413,7 +413,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw28u"]
-size = Vector2(13, 11)
+size = Vector2(15, 12)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -424,10 +424,10 @@ script = ExtResource("1_4lm4u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pfmd5")
-animation = &"1-idle"
+animation = &"charge_laser_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_nw28u")
 
 [node name="laser_beam" type="Area2D" parent="."]
