@@ -1,8 +1,10 @@
 extends CharacterBody2D
 # Set variables and signals
-var speed = 400
+@export_enum("Base", "Robot", "Collected") var state: String = "Base"
+@export var speed: float = 400
 var screen_size
 signal hit
+signal laser_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,8 +26,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	# TODO - Fix odd collision with enemy
-	var collision = move_and_collide(velocity * delta)
+	var collision = move_and_slide()
 	if collision:
 		velocity = Vector2.ZERO
 	

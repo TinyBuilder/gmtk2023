@@ -58,4 +58,5 @@ func _on_start_new_game():
 	await $SceneChange._anim_player.animation_finished
 	$Logo.hide()
 	$SceneChange._anim_player.play_backwards()
+	get_tree().change_scene_to_file("res://Map.tscn")
 	pass # Replace with function body.
