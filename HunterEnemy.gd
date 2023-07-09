@@ -27,7 +27,8 @@ func patrol():
 	state = "Idle"
 	if enemy_type == "Cleric":
 		velocity = Vector2.ZERO
-		direction += 0.05
+		if orientation == "Horizontal": direction += 0.05
+		if orientation == "Vertical": direction -= 0.05
 	
 	if enemy_type == "Knight":
 		velocity = speed * patrol_direction
