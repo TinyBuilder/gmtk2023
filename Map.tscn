@@ -653,6 +653,8 @@ z_index = 1
 [node name="Player" parent="." instance=ExtResource("3_scta4")]
 position = Vector2(125, 92)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="HunterEnemy" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(128, -94)
 
