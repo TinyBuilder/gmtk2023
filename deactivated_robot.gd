@@ -13,7 +13,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body == $"../player":
+	if body == $"../Player":
 		activated.emit()
-		$CollisionShape2D.set_deferred("disabled", true)
-		pass # Replace with function body.
+		queue_free()
