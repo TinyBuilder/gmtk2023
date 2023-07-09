@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1enblsoid2vw"]
+[gd_scene load_steps=13 format=3 uid="uid://c1enblsoid2vw"]
 
 [ext_resource type="Script" path="res://HunterEnemy.gd" id="1_qwh6h"]
 [ext_resource type="Texture2D" uid="uid://b40n6av4s6l8b" path="res://Art/light.webp" id="2_d3mgt"]
@@ -12,6 +12,22 @@ region = Rect2(96, 0, 16, 16)
 atlas = ExtResource("2_ffmp8")
 region = Rect2(112, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkrju"]
+atlas = ExtResource("2_ffmp8")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6qwc"]
+atlas = ExtResource("2_ffmp8")
+region = Rect2(112, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fspi8"]
+atlas = ExtResource("2_ffmp8")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf2kc"]
+atlas = ExtResource("2_ffmp8")
+region = Rect2(112, 32, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_bh3cf"]
 animations = [{
 "frames": [{
@@ -23,6 +39,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"1-down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkrju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6qwc")
+}],
+"loop": true,
+"name": &"1-right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fspi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf2kc")
+}],
+"loop": true,
+"name": &"1-up",
 "speed": 5.0
 }]
 
@@ -37,7 +75,7 @@ script = ExtResource("1_qwh6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bh3cf")
-animation = &"1-down"
+animation = &"1-up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.7, 0.7)

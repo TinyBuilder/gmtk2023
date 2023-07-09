@@ -1,13 +1,17 @@
 extends CharacterBody2D
 
-@export_enum("Idle", "Pursuit", "Rush") var state: String = "Idle"
+@export_enum("Idle", "Pursuit", "Rush", "Dead") var state: String = "Idle"
 @export_enum("Knight", "NotLink", "Cleric") var enemy_type: String = "Cleric"
 @export var direction: float = 0 ##angle in radians
 @export var speed: float = 300
+var animation_set = "1-"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$LightOccluder2D.set_rotation(direction)
-
+	if enemy_type == "Knight": animation_set = "2-"
+	if enemy_type == "NotLink": animation_set = "3-"
+	$AnimatedSprite2D.play(animation_set + "down")
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -18,7 +22,12 @@ func patrol():
 		velocity = Vector2.ZERO
 		direction += 0.05
 	
+	if enemy_type == "Knight":
+		pass
+	
 func _physics_process(delta):
+	if state == "Dead": return
+	
 	var target_position = $"../player".get_position()
 	var target_vector_normalized = (target_position - get_position()).normalized()
 	
@@ -44,6 +53,16 @@ func _physics_process(delta):
 	if direction < -PI: direction += 2 * PI
 	
 	$LightOccluder2D.set_rotation(direction)
+	
+	if direction > -PI/4 && direction < PI/4: $AnimatedSprite2D.play(animation_set + "down")
+	if direction > PI/4 && direction < 3*PI/4: 
+		$AnimatedSprite2D.set_flip_h(true)
+		$AnimatedSprite2D.play(animation_set + "right")
+	if direction > 3*PI/4 || direction < -3*PI/4: $AnimatedSprite2D.play(animation_set + "up")
+	if direction > -3*PI/4 && direction < -PI/4:
+		$AnimatedSprite2D.set_flip_h(false)
+		$AnimatedSprite2D.play(animation_set + "right")
+	
 	move_and_slide()
 	
 	
