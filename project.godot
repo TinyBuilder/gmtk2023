@@ -17,9 +17,11 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=576
-window/stretch/mode="canvas_items"
+window/size/viewport_width=256
+window/size/viewport_height=176
+window/size/window_width_override=1024
+window/size/window_height_override=704
+window/stretch/mode="viewport"
 
 [input]
 
@@ -56,3 +58,5 @@ shoot={
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
