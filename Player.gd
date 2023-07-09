@@ -24,7 +24,16 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	move_and_slide()
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		velocity = Vector2.ZERO
+	
+	if velocity.length() > 0:
+		$AnimatedSprite2D.play()
+	else:
+		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.flip_h = false
+	
 	# Input mapping
 #	if Input.is_action_pressed("move_up"):
 #		velocity.y -= 1
@@ -44,15 +53,15 @@ func _physics_process(delta):
 #		$AnimatedSprite2D.play("idle")
 #
 #	# Handle which animation to play based on current movement
-#	if velocity.x != 0:
-#		$AnimatedSprite2D.animation = "move_left"
-#		$AnimatedSprite2D.flip_h = velocity.x > 0
-#
-#	if velocity.y < 0:
-#		$AnimatedSprite2D.animation = "move_up"
-#
-#	if velocity.y > 0:
-#		$AnimatedSprite2D.animation = "move_down"
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "move_left"
+		$AnimatedSprite2D.flip_h = velocity.x > 0
+
+	if velocity.y < 0:
+		$AnimatedSprite2D.animation = "move_up"
+
+	if velocity.y > 0:
+		$AnimatedSprite2D.animation = "move_down"
 
 	# Update player position
 
