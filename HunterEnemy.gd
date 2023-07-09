@@ -6,7 +6,7 @@ signal kill_player
 @export var direction: float = 0 ##angle in radians
 @export var speed: float = 75
 var animation_set = "1-"
-var patrol_points
+var patrol_direction = Vector2(1,0)
 var patrol_target = 0
 
 
@@ -16,10 +16,8 @@ func _ready():
 	if enemy_type == "Knight": animation_set = "2-"
 	if enemy_type == "NotLink": animation_set = "3-"
 	$AnimatedSprite2D.play(animation_set + "down")
-	if orientation == "Horizontal":
-		patrol_points = [Vector2(50, get_position().y), Vector2(206, get_position().y)]
-	else:
-		patrol_points = [Vector2(get_position().x, 50), Vector2(get_position().x, 126)]
+	if orientation == "Vertical":
+		patrol_direction = Vector2(0,1)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,18 +30,8 @@ func patrol():
 		direction += 0.05
 	
 	if enemy_type == "Knight":
-		if orientation == "Horizontal" && patrol_target == 0 && get_position().x <= 50:
-			patrol_target = 1
-		if orientation == "Horizontal" && patrol_target == 1 && get_position().x >= 206:
-			patrol_target = 0
-		if orientation == "Vertical" && patrol_target == 0 && get_position().y <= 50:
-			patrol_target = 1
-		if orientation == "Vertical" && patrol_target == 1 && get_position().y >= 126:
-			patrol_target = 0
-		
-		var target_vector_normalized = (patrol_points[patrol_target] - get_position()).normalized()
-		velocity = speed * target_vector_normalized
-		direction = target_vector_normalized.angle() - PI/2
+		velocity = speed * patrol_direction
+		direction = patrol_direction.angle() - PI/2
 	
 func _physics_process(delta):
 	if state == "Dead": return
@@ -86,5 +74,7 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	for i in get_slide_collision_count():
+		if enemy_type == "Knight" && state == "Idle":
+			patrol_direction *= -1
 		if $"../Player" == get_slide_collision(i).get_collider():
 			kill_player.emit()
