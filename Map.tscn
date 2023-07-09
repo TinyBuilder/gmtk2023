@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cg0ix12atkfm"]
+[gd_scene load_steps=43 format=3 uid="uid://cg0ix12atkfm"]
 
 [ext_resource type="Script" path="res://Map.gd" id="1_1pr1y"]
 [ext_resource type="Texture2D" uid="uid://h56aqd8isbe1" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
@@ -87,6 +87,14 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pfht3"]
 polygon = PackedVector2Array(-8, -8, 0.125, -8, 0.125, 8, -8, 8)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bs744"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y0q2n"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q338j"]
 polygon = PackedVector2Array(-8, -8, 0.125, -8, 0.125, 8, -8, 8)
@@ -451,8 +459,11 @@ texture = ExtResource("1_kbfvf")
 5:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:7/0/physics_layer_0/angular_velocity = 0.0
 6:7/0 = 0
+6:7/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_y0q2n")
 6:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:7/0/physics_layer_0/angular_velocity = 0.0
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bs744")
 7:7/0 = 0
 7:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:7/0/physics_layer_0/angular_velocity = 0.0
