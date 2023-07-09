@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menus/game_over.gd" id="1_susi4"]
 [ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_36kw1"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="3_pk0h0"]
-[ext_resource type="Texture2D" uid="uid://dadx4nmm67klk" path="res://Art/game_over.png" id="4_opuii"]
+[ext_resource type="Texture2D" uid="uid://ch0vron623obr" path="res://Art/game_over.png" id="4_opuii"]
 
 [node name="Game_Over" type="CanvasLayer"]
 script = ExtResource("1_susi4")
