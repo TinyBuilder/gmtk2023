@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbco42vrs4uta"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_rovxr"]
+[ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_36kw1"]
+[ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="3_pk0h0"]
+[ext_resource type="Texture2D" uid="uid://bvww22oryamae" path="res://Art/game_over.png" id="4_opuii"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_rovxr")
+
+[node name="StartGame" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -50.0
+offset_right = -38.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_36kw1")
+text = "Yes"
+
+[node name="Continue?" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -75.0
+offset_right = -11.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_36kw1")
+button_mask = 0
+text = "Continue?"
+
+[node name="SceneChange" parent="." instance=ExtResource("3_pk0h0")]
+offset_left = 443.0
+offset_top = 182.0
+offset_right = 443.0
+offset_bottom = 182.0
+
+[node name="LoseScreen" type="Sprite2D" parent="."]
+z_index = -1
+
+[node name="WinScreen" type="Sprite2D" parent="."]
+z_index = -1
+
+[node name="BackButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -30.0
+offset_right = -42.0
+offset_bottom = 4.00002
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_36kw1")
+text = "No"
+
+[node name="GameOver" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(128, 89)
+texture = ExtResource("4_opuii")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="StartGame" to="." method="new_game"]
+[connection signal="pressed" from="Continue?" to="." method="new_game"]
+[connection signal="pressed" from="BackButton" to="." method="_on_credits_pressed"]

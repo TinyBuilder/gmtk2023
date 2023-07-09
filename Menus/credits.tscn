@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cshlc1snsmvde"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_s62wm"]
+[ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_pjwbx"]
+[ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="3_tiqv8"]
+[ext_resource type="Texture2D" uid="uid://cav55h57sigk6" path="res://Art/background.png" id="5_cjxw2"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_s62wm")
+
+[node name="CreditsText" type="Label" parent="."]
+offset_left = 5.00003
+offset_top = 2.0
+offset_right = 315.0
+offset_bottom = 180.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_pjwbx")
+text = "- Programming - 
+Littlebattler, Ikwaylx, Jamous
+- Art - 
+NantenJex, Sheen
+- Tea Boy - 
+TwoSeperateGorillas"
+horizontal_alignment = 1
+
+[node name="SceneChange" parent="." instance=ExtResource("3_tiqv8")]
+offset_left = 443.0
+offset_top = 182.0
+offset_right = 443.0
+offset_bottom = 182.0
+
+[node name="LoseScreen" type="Sprite2D" parent="."]
+z_index = -1
+
+[node name="WinScreen" type="Sprite2D" parent="."]
+z_index = -1
+
+[node name="BackButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -31.0
+offset_right = 92.0
+offset_bottom = 2.99998
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_pjwbx")
+text = "Back"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(129, 89)
+scale = Vector2(1.00391, 1.01136)
+texture = ExtResource("5_cjxw2")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_credits_pressed"]
