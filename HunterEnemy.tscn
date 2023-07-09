@@ -1,14 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1enblsoid2vw"]
+[gd_scene load_steps=9 format=3 uid="uid://c1enblsoid2vw"]
 
 [ext_resource type="Script" path="res://HunterEnemy.gd" id="1_qwh6h"]
+[ext_resource type="Texture2D" uid="uid://b40n6av4s6l8b" path="res://Art/light.webp" id="2_d3mgt"]
+[ext_resource type="Texture2D" uid="uid://bucok2q41uohw" path="res://Art/enemy_knights.png" id="2_ffmp8"]
 
-[node name="HunterEnemy" type="Area2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kus76"]
+atlas = ExtResource("2_ffmp8")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tccsn"]
+atlas = ExtResource("2_ffmp8")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bh3cf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kus76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tccsn")
+}],
+"loop": true,
+"name": &"1-down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rvekp"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_655ns"]
+polygon = PackedVector2Array(0, 0, 1, 1, 1, -1, -1, -1, -1, 1)
+
+[node name="HunterEnemy" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_qwh6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bh3cf")
+animation = &"1-down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_rvekp")
 
-[node name="VisionCone" type="Area2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 4)
+shadow_enabled = true
+texture = ExtResource("2_d3mgt")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="VisionCone"]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, 4)
+occluder = SubResource("OccluderPolygon2D_655ns")
