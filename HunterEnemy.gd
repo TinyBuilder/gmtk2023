@@ -86,12 +86,5 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	for i in get_slide_collision_count():
-		if $"../Player" == get_slide_collision(i):
+		if $"../Player" == get_slide_collision(i).get_collider():
 			kill_player.emit()
-
-func _on_kill_player():
-	$SceneChange._anim_player.play()
-	await $SceneChange._anim_player.animation_finished
-	$SceneChange._anim_player.play_backwards()
-	get_tree().change_scene_to_file("res://Menus/game_over.tscn")
-	pass # Replace with function body.
