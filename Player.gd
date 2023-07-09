@@ -79,7 +79,7 @@ func robot_activation():
 	collectable = false
 	
 	# change collision to fit robot size
-	pass
+
 	
 
 
@@ -92,4 +92,3 @@ func robot_activation():
 
 func _on_deactivated_robot_activated():
 	robot_activation()
-	pass # Replace with function body.
