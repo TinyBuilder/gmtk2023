@@ -1,7 +1,7 @@
 extends CharacterBody2D
 # Set variables and signals
 @export_enum("Base", "Robot", "Collected") var state: String = "Base"
-@export var speed: float = 400
+@export var speed: float = 100
 var screen_size
 var collectable
 var laser_usable = false

@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export_enum("Idle", "Pursuit", "Rush", "Dead") var state: String = "Idle"
 @export_enum("Knight", "NotLink", "Cleric") var enemy_type: String = "Cleric"
 @export var direction: float = 0 ##angle in radians
-@export var speed: float = 300
+@export var speed: float = 75
 var animation_set = "1-"
 var patrol_points
 var patrol_target = 0
