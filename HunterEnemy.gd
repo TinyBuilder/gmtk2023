@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export_enum("Idle", "Pursuit", "Rush") var state: String = "Idle"
 @export_enum("Knight", "NotLink", "Cleric") var enemy_type: String = "Cleric"
 @export var direction: float = 0 ##angle in radians
+@export var speed: float = 300
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$LightOccluder2D.set_rotation(direction)
@@ -32,7 +33,7 @@ func _physics_process(delta):
 		var result = space_state.intersect_ray(query)
 		if result["collider"] == $"../player" :
 			state = "Pursuit"
-			velocity = 500 * target_vector_normalized
+			velocity = speed * target_vector_normalized
 			direction = target_vector_normalized.angle() - PI/2
 		else:
 			patrol()
