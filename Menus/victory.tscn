@@ -29,8 +29,7 @@ z_index = 1
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(129, 89)
-scale = Vector2(1.00391, 1.01136)
 texture = ExtResource("4_3mm5l")
-metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
