@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export_enum("Idle", "Pursuit", "Rush", "Dead") var state: String = "Idle"
 @export_enum("Knight", "NotLink", "Cleric") var enemy_type: String = "Cleric"
+@export_enum("Horizontal", "Vertical") var orientation: String = "Horizontal"
 @export var direction: float = 0 ##angle in radians
 @export var speed: float = 75
 var animation_set = "1-"
@@ -13,7 +14,10 @@ func _ready():
 	if enemy_type == "Knight": animation_set = "2-"
 	if enemy_type == "NotLink": animation_set = "3-"
 	$AnimatedSprite2D.play(animation_set + "down")
-	patrol_points = [Vector2(50, get_position().y), Vector2(206, get_position().y)]
+	if orientation == "Horizontal":
+		patrol_points = [Vector2(50, get_position().y), Vector2(206, get_position().y)]
+	else:
+		patrol_points = [Vector2(get_position().x, 50), Vector2(get_position().x, 126)]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,9 +30,13 @@ func patrol():
 		direction += 0.05
 	
 	if enemy_type == "Knight":
-		if patrol_target == 0 && get_position().x <= 50:
+		if orientation == "Horizontal" && patrol_target == 0 && get_position().x <= 50:
 			patrol_target = 1
-		if patrol_target == 1 && get_position().x >= 206:
+		if orientation == "Horizontal" && patrol_target == 1 && get_position().x >= 206:
+			patrol_target = 0
+		if orientation == "Vertical" && patrol_target == 0 && get_position().y <= 50:
+			patrol_target = 1
+		if orientation == "Vertical" && patrol_target == 1 && get_position().y >= 126:
 			patrol_target = 0
 		
 		var target_vector_normalized = (patrol_points[patrol_target] - get_position()).normalized()
