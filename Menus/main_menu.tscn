@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ds7n4"]
 [ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_rigwx"]
-[ext_resource type="Texture2D" uid="uid://blhusf4fmvlhd" path="res://Art/logo1.png" id="4_f4724"]
+[ext_resource type="Texture2D" uid="uid://cd4ixg0p145up" path="res://Art/logo1.png" id="4_f4724"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="4_mluxf"]
-[ext_resource type="Texture2D" uid="uid://cyhtsmlu4hdp7" path="res://Art/background.png" id="5_4ql7j"]
-[ext_resource type="Texture2D" uid="uid://b0nw4ul1ujmr6" path="res://Art/logo2.png" id="5_m30ju"]
-[ext_resource type="Texture2D" uid="uid://d0qawwnhsiff" path="res://Art/logo3.png" id="6_k2e8p"]
+[ext_resource type="Texture2D" uid="uid://cav55h57sigk6" path="res://Art/background.png" id="5_4ql7j"]
+[ext_resource type="Texture2D" uid="uid://c07qkgv4p5d2m" path="res://Art/logo2.png" id="5_m30ju"]
+[ext_resource type="Texture2D" uid="uid://ssw6a62we5jg" path="res://Art/logo3.png" id="6_k2e8p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x47st"]
 animations = [{

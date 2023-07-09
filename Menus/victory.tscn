@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menus/victory.gd" id="1_qaapa"]
 [ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_k6bf4"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="3_87878"]
-[ext_resource type="Texture2D" uid="uid://bga2hkqbyto02" path="res://Art/Congratulations.png" id="4_3mm5l"]
+[ext_resource type="Texture2D" uid="uid://citpwpu2bsx6q" path="res://Art/Congratulations.png" id="4_3mm5l"]
 
 [node name="Victory" type="CanvasLayer"]
 script = ExtResource("1_qaapa")

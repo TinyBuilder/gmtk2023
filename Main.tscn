@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main.gd" id="1_02xdv"]
 [ext_resource type="PackedScene" uid="uid://bs1nvi53ahd5x" path="res://Menus/main_menu.tscn" id="2_paxka"]
-[ext_resource type="AudioStream" uid="uid://vup1n7fvmf5" path="res://Music & SFX/Menu_NOTFINAL.wav" id="3_qp4hh"]
+[ext_resource type="AudioStream" uid="uid://b6ksharwbno5p" path="res://Music & SFX/Menu_NOTFINAL.wav" id="3_qp4hh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_02xdv")

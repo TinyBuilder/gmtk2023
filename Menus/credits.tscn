@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Menus/credits.gd" id="1_6rxv7"]
 [ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_pjwbx"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="3_tiqv8"]
-[ext_resource type="Texture2D" uid="uid://qyl734lwpmpt" path="res://Art/background.png" id="5_cjxw2"]
+[ext_resource type="Texture2D" uid="uid://cav55h57sigk6" path="res://Art/background.png" id="5_cjxw2"]
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_6rxv7")
