@@ -51,3 +51,5 @@ texture = ExtResource("2_d3mgt")
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(0, 4)
 occluder = SubResource("OccluderPolygon2D_655ns")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
