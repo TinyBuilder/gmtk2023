@@ -8,6 +8,9 @@ extends CharacterBody2D
 var animation_set = "1-"
 var patrol_points
 var patrol_target = 0
+
+signal kill_player()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$LightOccluder2D.set_rotation(direction)
@@ -83,4 +86,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play(animation_set + "right")
 		
 	move_and_slide()
-	
+	for i in get_slide_collision_count():
+		if $"../Player" == get_slide_collision(i):
+			emit_signal("kill_player")
