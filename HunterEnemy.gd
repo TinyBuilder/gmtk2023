@@ -5,12 +5,15 @@ extends CharacterBody2D
 @export var direction: float = 0 ##angle in radians
 @export var speed: float = 300
 var animation_set = "1-"
+var patrol_points
+var patrol_target = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$LightOccluder2D.set_rotation(direction)
 	if enemy_type == "Knight": animation_set = "2-"
 	if enemy_type == "NotLink": animation_set = "3-"
 	$AnimatedSprite2D.play(animation_set + "down")
+	patrol_points = [Vector2(20, 88), Vector2(236, 88)]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,7 +26,12 @@ func patrol():
 		direction += 0.05
 	
 	if enemy_type == "Knight":
-		pass
+		if get_position().x <= patrol_points[patrol_target].x:
+			patrol_target += 1
+			if patrol_target > 1:
+				patrol_target = 0
+		
+		velocity = speed * (patrol_points[patrol_target] - get_position()).normalized()
 	
 func _physics_process(delta):
 	if state == "Dead": return
@@ -33,15 +41,16 @@ func _physics_process(delta):
 	
 	if state == "Rush":
 		# rush player
-		return
-	
-	if !Geometry2D.is_point_in_polygon(target_vector_normalized.rotated(-direction), $LightOccluder2D.occluder.polygon) :
+		velocity = speed * target_vector_normalized
+		direction = target_vector_normalized.angle() - PI/2
+	elif !Geometry2D.is_point_in_polygon(target_vector_normalized.rotated(-direction), $LightOccluder2D.occluder.polygon) :
 		var space_state = get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(global_position, $"../player".global_position, collision_mask)
 		query.exclude = [self]
 		var result = space_state.intersect_ray(query)
 		if result["collider"] == $"../player" :
 			state = "Pursuit"
+			if enemy_type == "Knight": state = "Rush"
 			velocity = speed * target_vector_normalized
 			direction = target_vector_normalized.angle() - PI/2
 		else:
