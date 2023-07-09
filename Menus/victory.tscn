@@ -1,41 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhk86dhf5ibes"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_kydy7"]
+[ext_resource type="Script" path="res://Menus/victory.gd" id="1_qaapa"]
 [ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_k6bf4"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="3_87878"]
-[ext_resource type="Texture2D" uid="uid://cav55h57sigk6" path="res://Art/background.png" id="4_krqxv"]
+[ext_resource type="Texture2D" uid="uid://ccupnqfh1mk6x" path="res://Art/background.png" id="4_krqxv"]
 
-[node name="MainMenu" type="CanvasLayer"]
-script = ExtResource("1_kydy7")
+[node name="Victory" type="CanvasLayer"]
+script = ExtResource("1_qaapa")
 
-[node name="SceneChange" parent="." instance=ExtResource("3_87878")]
-offset_left = 443.0
-offset_top = 182.0
-offset_right = 443.0
-offset_bottom = 182.0
-
-[node name="LoseScreen" type="Sprite2D" parent="."]
-z_index = -1
-
-[node name="WinScreen" type="Sprite2D" parent="."]
-z_index = -1
-
-[node name="BackButton" type="Button" parent="."]
+[node name="Continue" type="Button" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -174.0
-offset_right = 170.0
-offset_bottom = -140.0
+offset_left = -89.5
+offset_top = -25.0
+offset_right = 89.5
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_k6bf4")
-text = "Continue"
+theme_override_font_sizes/font_size = 12
+text = "Congratulations! You Won!"
+
+[node name="SceneChange" parent="." instance=ExtResource("3_87878")]
+z_index = 1
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2
@@ -44,24 +33,4 @@ scale = Vector2(1.00391, 1.01136)
 texture = ExtResource("4_krqxv")
 metadata/_edit_lock_ = true
 
-[node name="You Win!" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -81.0
-offset_top = -120.0
-offset_right = 155.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.7, 0.7)
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("2_k6bf4")
-text = "You Win!
-
-Congratulations"
-
-[connection signal="pressed" from="BackButton" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="You Win!" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

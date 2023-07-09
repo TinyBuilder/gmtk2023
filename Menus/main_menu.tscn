@@ -24,6 +24,7 @@ grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_rigwx")
+theme_override_font_sizes/font_size = 15
 text = "Start Game"
 
 [node name="CreditsButton" type="Button" parent="."]
@@ -32,22 +33,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -42.0
-offset_right = 151.0
-offset_bottom = -8.00002
+offset_left = 57.0
+offset_top = -41.0
+offset_right = 132.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_rigwx")
+theme_override_font_sizes/font_size = 15
 text = "Credits"
 
 [node name="SceneChange" parent="." instance=ExtResource("4_mluxf")]
-offset_left = 443.0
-offset_top = 182.0
-offset_right = 443.0
-offset_bottom = 182.0
+z_index = 1
 
 [node name="LoseScreen" type="Sprite2D" parent="."]
 z_index = -1
@@ -56,7 +55,7 @@ z_index = -1
 z_index = -1
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(121, 59)
+position = Vector2(128, 82)
 scale = Vector2(0.31203, 0.31203)
 texture = ExtResource("4_f4724")
 
