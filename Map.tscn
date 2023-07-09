@@ -1,7 +1,7 @@
 [gd_scene load_steps=45 format=3 uid="uid://cg0ix12atkfm"]
 
 [ext_resource type="Script" path="res://Map.gd" id="1_1pr1y"]
-[ext_resource type="Texture2D" uid="uid://c0em8hbm0oxj8" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
+[ext_resource type="Texture2D" uid="uid://cfp3w70yfi4a6" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
 [ext_resource type="PackedScene" uid="uid://co5jxwacp05mi" path="res://player.tscn" id="3_scta4"]
 [ext_resource type="PackedScene" uid="uid://c1enblsoid2vw" path="res://HunterEnemy.tscn" id="4_52yht"]
 [ext_resource type="PackedScene" uid="uid://db02x5gb4tdwg" path="res://deactivated_robot.tscn" id="5_no1dw"]
@@ -659,3 +659,5 @@ position = Vector2(164.25, 32.25)
 
 [node name="DeactivatedRobot" parent="." instance=ExtResource("5_no1dw")]
 position = Vector2(34.5, 22.75)
+
+[connection signal="kill_player" from="HunterEnemy" to="." method="_on_hunter_enemy_kill_player"]
