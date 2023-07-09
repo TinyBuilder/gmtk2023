@@ -18,13 +18,13 @@ func _ready():
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("ui_up"):		
+	if Input.is_action_pressed("move_up"):		
 		velocity.y -= speed
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("move_down"):
 		velocity.y += speed
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("move_left"):
 		velocity.x -= speed
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("move_right"):
 		velocity.x += speed
 	if laser_usable == true:
 		if Input.is_action_pressed("shoot"):
