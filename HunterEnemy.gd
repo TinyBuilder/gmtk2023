@@ -13,7 +13,7 @@ func _ready():
 	if enemy_type == "Knight": animation_set = "2-"
 	if enemy_type == "NotLink": animation_set = "3-"
 	$AnimatedSprite2D.play(animation_set + "down")
-	patrol_points = [Vector2(20, 88), Vector2(236, 88)]
+	patrol_points = [Vector2(50, get_position().y), Vector2(206, get_position().y)]
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,17 +26,19 @@ func patrol():
 		direction += 0.05
 	
 	if enemy_type == "Knight":
-		if get_position().x <= patrol_points[patrol_target].x:
-			patrol_target += 1
-			if patrol_target > 1:
-				patrol_target = 0
+		if patrol_target == 0 && get_position().x <= 50:
+			patrol_target = 1
+		if patrol_target == 1 && get_position().x >= 206:
+			patrol_target = 0
 		
-		velocity = speed * (patrol_points[patrol_target] - get_position()).normalized()
+		var target_vector_normalized = (patrol_points[patrol_target] - get_position()).normalized()
+		velocity = speed * target_vector_normalized
+		direction = target_vector_normalized.angle() - PI/2
 	
 func _physics_process(delta):
 	if state == "Dead": return
 	
-	var target_position = $"../player".get_position()
+	var target_position = $"../Player".get_position()
 	var target_vector_normalized = (target_position - get_position()).normalized()
 	
 	if state == "Rush":
@@ -45,10 +47,10 @@ func _physics_process(delta):
 		direction = target_vector_normalized.angle() - PI/2
 	elif !Geometry2D.is_point_in_polygon(target_vector_normalized.rotated(-direction), $LightOccluder2D.occluder.polygon) :
 		var space_state = get_world_2d().direct_space_state
-		var query = PhysicsRayQueryParameters2D.create(global_position, $"../player".global_position, collision_mask)
+		var query = PhysicsRayQueryParameters2D.create(global_position, $"../Player".global_position, collision_mask)
 		query.exclude = [self]
 		var result = space_state.intersect_ray(query)
-		if result["collider"] == $"../player" :
+		if result["collider"] == $"../Player" :
 			state = "Pursuit"
 			if enemy_type == "Knight": state = "Rush"
 			velocity = speed * target_vector_normalized
@@ -71,7 +73,6 @@ func _physics_process(delta):
 	if direction > -3*PI/4 && direction < -PI/4:
 		$AnimatedSprite2D.set_flip_h(false)
 		$AnimatedSprite2D.play(animation_set + "right")
-	
+		
 	move_and_slide()
-	
 	
