@@ -4,7 +4,6 @@ var credits_on = 0 #used for toggling credits text
 @onready var _transition_rect := $SceneChange
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$CreditsText.hide() #ensures credits text hidden by default
 	$LoseScreen.hide()
 	$WinScreen.hide()
 	pass # Replace with function body.
@@ -40,12 +39,10 @@ func _on_credits_pressed():
 		$LoseScreen.hide()
 		$WinScreen.hide()
 		$CreditsButton.text = "Hide Credits" #Updates button text
-		$CreditsText.show()
 		$Logo.set_modulate(Color (1,1,1,0.1)) #Dims background while credits display
 		credits_on = 1
 	else: 
 		$StartGame.show()
-		$CreditsText.hide()
 		$Logo.set_modulate(Color (1,1,1,1)) #relightens background
 		$CreditsButton.text = "Show Credits"
 		credits_on = 0
