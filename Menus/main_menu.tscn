@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_ds7n4"]
 [ext_resource type="FontFile" uid="uid://dbugthsaoxno" path="res://Dyslexie Regular LP218125.ttf" id="2_rigwx"]
-[ext_resource type="Texture2D" uid="uid://cd4ixg0p145up" path="res://Art/logo1.png" id="4_f4724"]
+[ext_resource type="Texture2D" uid="uid://dbkwg4colhm47" path="res://Art/logo1.png" id="4_f4724"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="4_mluxf"]
-[ext_resource type="Texture2D" uid="uid://cav55h57sigk6" path="res://Art/background.png" id="5_4ql7j"]
+[ext_resource type="Texture2D" uid="uid://ccupnqfh1mk6x" path="res://Art/background.png" id="5_4ql7j"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ds7n4")
@@ -55,7 +55,7 @@ z_index = -1
 [node name="WinScreen" type="Sprite2D" parent="."]
 z_index = -1
 
-[node name="Logo1" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(121, 59)
 scale = Vector2(0.31203, 0.31203)
 texture = ExtResource("4_f4724")
