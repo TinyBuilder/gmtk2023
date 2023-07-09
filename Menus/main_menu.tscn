@@ -74,8 +74,8 @@ z_index = -1
 z_index = -1
 
 [node name="Logo" type="AnimatedSprite2D" parent="."]
-position = Vector2(128, 82)
-scale = Vector2(0.31203, 0.31203)
+position = Vector2(136, 76)
+scale = Vector2(0.432331, 0.432331)
 sprite_frames = SubResource("SpriteFrames_x47st")
 autoplay = "default"
 frame_progress = 0.227753
