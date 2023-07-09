@@ -7,6 +7,7 @@ var collectable
 var laser_usable = false
 signal hit
 signal laser_hit
+signal kill_player
 var animation_set = "1-"
 
 # Called when the node enters the scene tree for the first time.
@@ -17,13 +18,13 @@ func _ready():
 
 func get_input():
 	velocity = Vector2.ZERO
-	if Input.is_action_pressed("ui_up"):		
+	if Input.is_action_pressed("move_up"):		
 		velocity.y -= speed
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("move_down"):
 		velocity.y += speed
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("move_left"):
 		velocity.x -= speed
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("move_right"):
 		velocity.x += speed
 	if laser_usable == true:
 		if Input.is_action_pressed("shoot"):
@@ -70,6 +71,10 @@ func _physics_process(delta):
 
 	if velocity.y > 0:
 		$AnimatedSprite2D.play(animation_set + "down")
+		
+	for i in get_slide_collision_count():
+		if get_slide_collision(i).get_collider() in get_tree().get_nodes_in_group("enemy"):
+			emit_signal("kill_player")
 		
 func robot_activation():
 	# change player state to robot

@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=39 format=3 uid="uid://djjmjpeuk6tkg"]
 
-[ext_resource type="Texture2D" uid="uid://coc6np16hvw0l" path="res://Art/Dungeon_tileset.png" id="1_mra1a"]
+[ext_resource type="Texture2D" uid="uid://vw3w0kv1mq0d" path="res://Art/Dungeon_tileset.png" id="1_mra1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xd8xo"]
 

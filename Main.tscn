@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main.gd" id="1_02xdv"]
 [ext_resource type="PackedScene" uid="uid://bs1nvi53ahd5x" path="res://Menus/main_menu.tscn" id="2_paxka"]
-[ext_resource type="AudioStream" uid="uid://rwcu6ptao2kn" path="res://Music & SFX/Menu_NOTFINAL.wav" id="3_qp4hh"]
+[ext_resource type="AudioStream" uid="uid://vup1n7fvmf5" path="res://Music & SFX/Menu_NOTFINAL.wav" id="3_qp4hh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_02xdv")
@@ -11,7 +11,7 @@ script = ExtResource("1_02xdv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qp4hh")
-volume_db = -6.265
+volume_db = -25.0
 autoplay = true
 
 [connection signal="start_new_game" from="MainMenu" to="MainMenu" method="_on_start_new_game"]

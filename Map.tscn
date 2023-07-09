@@ -1,9 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://cg0ix12atkfm"]
 
 [ext_resource type="Script" path="res://Map.gd" id="1_1pr1y"]
-
-[ext_resource type="Texture2D" uid="uid://cfp3w70yfi4a6" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
-
+[ext_resource type="Texture2D" uid="uid://vw3w0kv1mq0d" path="res://Art/Dungeon_tileset.png" id="1_kbfvf"]
 [ext_resource type="PackedScene" uid="uid://co5jxwacp05mi" path="res://player.tscn" id="3_scta4"]
 [ext_resource type="PackedScene" uid="uid://c1enblsoid2vw" path="res://HunterEnemy.tscn" id="4_52yht"]
 [ext_resource type="PackedScene" uid="uid://bsgjdyv2fouhg" path="res://scene_change.tscn" id="6_kqh4j"]
@@ -655,82 +653,85 @@ z_index = 1
 [node name="Player" parent="." instance=ExtResource("3_scta4")]
 position = Vector2(125, 92)
 
-[node name="HunterEnemy" parent="." instance=ExtResource("4_52yht")]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="HunterEnemy" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(128, -94)
 
-[node name="HunterEnemy2" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy2" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-127, -267)
 
-[node name="HunterEnemy3" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy3" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(640, -440)
 
-[node name="HunterEnemy4" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy4" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(389, -422)
 enemy_type = "Knight"
 
-[node name="HunterEnemy5" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy5" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-381, -791)
 
-[node name="HunterEnemy6" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy6" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-695, -655)
 
-[node name="HunterEnemy7" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy7" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(129, -970)
 
-[node name="HunterEnemy8" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy8" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(382, -792)
 
-[node name="HunterEnemy9" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy9" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(680, -968)
 enemy_type = "Knight"
 
-[node name="HunterEnemy10" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy10" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(597, -970)
 
-[node name="HunterEnemy11" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy11" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-128, -667)
 enemy_type = "Knight"
 
-[node name="HunterEnemy12" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy12" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-449, -661)
 enemy_type = "Knight"
 
-[node name="HunterEnemy13" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy13" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-718, -841)
 enemy_type = "Knight"
 orientation = "Vertical"
 
-[node name="HunterEnemy14" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy14" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-124, -935)
 enemy_type = "Knight"
 
-[node name="HunterEnemy15" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy15" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(387, -612)
 
-[node name="HunterEnemy16" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy16" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-69, -752)
 
-[node name="HunterEnemy17" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy17" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-383, -266)
 
-[node name="HunterEnemy18" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy18" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-206, -49)
 enemy_type = "Knight"
 
-[node name="HunterEnemy19" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy19" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(463, -143)
 enemy_type = "Knight"
 
-[node name="HunterEnemy20" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy20" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(716, -211)
 enemy_type = "Knight"
 
-[node name="HunterEnemy21" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy21" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(896, -791)
 enemy_type = "Knight"
 orientation = "Vertical"
 
-[node name="HunterEnemy22" parent="." instance=ExtResource("4_52yht")]
+[node name="HunterEnemy22" parent="." groups=["enemy"] instance=ExtResource("4_52yht")]
 position = Vector2(-88, -443)
 
+[connection signal="kill_player" from="Player" to="." method="_on_player_kill_player"]
 [connection signal="kill_player" from="HunterEnemy" to="." method="_on_hunter_enemy_kill_player"]
